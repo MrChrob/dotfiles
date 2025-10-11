@@ -1,0 +1,17 @@
+# All the default Omarchy aliases and functions
+# (don't mess with these directly, just overwrite them here!)
+source ~/.local/share/omarchy/default/bash/rc
+
+# Add your own exports, aliases, and functions here.
+#
+# Make an alias for invoking commands you use constantly
+# alias p='python'
+for dir in ~/.config/bash/{env,local,aliases,functions}; do
+    if [ -d "$dir" ]; then
+        for file in "$dir"/*.sh; do
+            [ -r "$file" ] && . "$file"
+        done
+    fi
+done
+
+. "$HOME/.local/share/../bin/env"
